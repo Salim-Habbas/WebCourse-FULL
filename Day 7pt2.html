@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <script>
+        document.addEventListener("DOMContentLoaded" , function(){
+            document.querySelector("form").onsubmit = function() {
+                let name = document.querySelector("#name").value;
+                alert(`Hello ${name}, How Are You Today?` );
+                return false;
+                
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Enter Your Name" id="name">
+        <input type="submit">
+
+    </form>
+</body>
+</html>

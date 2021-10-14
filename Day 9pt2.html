@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector("form").onsubmit = function () {
+            fetch("https://api.exchangerate.host/latest?base=USD")
+            .then((response) => response.json())
+            .then((data) => {
+                const currency = document.querySelector("#currency").value 
+                console.log(data);
+                const rate = data.rates[currency];
+                console.log(rate);
+            
+
+                document.querySelector("h1").innerHTML = `1 USD is Equal ${rate.toFixed(2)} ${currency}` 
+
+            });
+            return false;
+        };
+        }); 
+        
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="currency" placeholder="Currency">
+        <input type="submit" name="" value="change">
+    </form>
+    <H1></H1>
+</body>
+</html>
